@@ -4,8 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="Pais" table="PAISES">
+    <class name="Estado" table="ESTADOS">
         <id name="id_pais" type="double" column="id"></id>
-        <property name="nombre" column="nombre" type="string"></property>
+        <id name="id_estado" type="double" column="id"></id>
+        <property name="nombre" type="String" column="nombre"></property>
     </class>
 </hibernate-mapping>

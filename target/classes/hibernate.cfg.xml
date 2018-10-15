@@ -13,6 +13,7 @@
         <property name="hibernate.connection.username">hector</property>
         <property name="hibernate.connection.password">password</property>
 
-        <mapping class="Paises"></mapping>
+        <mapping class="Pais"></mapping>
+        <mapping class="Estado"></mapping>
     </session-factory>
 </hibernate-configuration>

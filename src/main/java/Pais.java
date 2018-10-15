@@ -6,9 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "PAISES")
 
-public class Paises {
+public class Pais {
     @Id
     @Column(name = "id_pais")
     private double id_pais;
@@ -16,6 +16,12 @@ public class Paises {
     @Column(name ="nombre")
     private String nombre;
 
+    public Pais () {}
+
+    public Pais(double id_pais, String nombre) {
+        this.id_pais = id_pais;
+        this.nombre = nombre;
+    }
     public double getId_pais() {
         return id_pais;
     }
@@ -30,5 +36,13 @@ public class Paises {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Pais{" +
+                "id_pais=" + id_pais +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }
