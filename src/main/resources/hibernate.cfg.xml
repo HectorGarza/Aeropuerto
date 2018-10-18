@@ -9,11 +9,13 @@
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.url">jdbc:mysql://192.168.1.115:3306/aeropuerto?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
-        <property name="hibernate.connection.username">hector</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/abd2018?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">password</property>
 
         <mapping class="Pais"></mapping>
         <mapping class="Estado"></mapping>
+        <mapping class="Ciudad"></mapping>
+        <mapping class="Colonia"></mapping>
     </session-factory>
 </hibernate-configuration>

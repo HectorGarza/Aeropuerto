@@ -2,6 +2,8 @@ import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Main {
@@ -27,15 +29,24 @@ public class Main {
             m.addEstado(pais, estado, nombre);
         }
 */
-        String sql = "SELECT paises.nombre as PAIS, estados.NOMBRE as ESTADO FROM paises, estados where " +
-                "paises.id_pais = estados.id_pais and estados.id_estado = 2 order by paises.id_pais";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
-        Object[] results = query.list().toArray();
 
-        for (Object p : results) {
-            System.out.println(p);
+        String sql = "\n" +
+                "select p.nombre, e.nombre,  ci.nombre, co.nombre from Pais p, Estado e, Ciudad ci, Colonia co\n" +
+                "where p.id_pais = e.id_pais and\n" +
+                "\t\t\te.id_pais = ci.id_pais and\n" +
+                "\t\t\te.id_estado = ci.id_estado and\n" +
+                "            ci.id_pais = co.id_pais and\n" +
+                "            ci.id_estado = co.id_estado and\n" +
+                "            ci.id_ciudad = co.id_ciudad\n";
+
+        Query query = session.createQuery(sql);
+        List<Object[]> results = query.getResultList();
+        int counter = 0;
+        for (Object[] p : results) {
+            System.out.println(Arrays.toString(p));
+            counter++;
         }
+        System.out.println(counter + " results");
         System.exit(0);
     }
 
